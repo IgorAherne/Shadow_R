@@ -13,7 +13,7 @@ arguments and their default values (see test.py):<br>
 `--test_dir = ./ShadowDataset/test` where the input images are<br>
 `--output_dir = ./results/`<br>
 `--window_size = 512` size of sliding window<br>
-`--overlap = 64 Overlap between windows` overlap among the windows<br>
+`--overlap = 64` overlap among the windows<br>
 
 
 Original repo description:
