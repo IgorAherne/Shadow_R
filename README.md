@@ -1,8 +1,8 @@
 Adjustment to the original repository, which allows to run it on weaker cards.<br>
 Uses chunking/patching.<br>
 
-Original repo installation will result in missing dependencies.<br>
-So instead, install like that: `pip install --upgrade-strategy only-if-needed -r requirements.txt`.
+Currently, original repo installation steps will result in wrong dependencies.<br>
+So instead, install like this: `pip install --upgrade-strategy only-if-needed -r requirements.txt`.
 
 Launch via `python ./test.py --window_size 512` or `--window_size 256` etc<br>
 
