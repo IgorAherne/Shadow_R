@@ -1,9 +1,12 @@
 Adjustment to the original repository, which allows to run it on weaker cards.<br>
 Uses chunking/patching.<br>
-See test.py<br>
+
+Original repo installation will result in missing dependencies.<br>
+So instead, install like that: `pip install --upgrade-strategy only-if-needed -r requirements.txt`.
+
 Launch via `python ./test.py --window_size 512` or `--window_size 256` etc<br>
 
-arguments and their default values:<br>
+arguments and their default values (see test.py):<br>
 `--test_dir = ./ShadowDataset/test` where the input images are<br>
 `--output_dir = ./results/`<br>
 `--window_size = 512` size of sliding window<br>
