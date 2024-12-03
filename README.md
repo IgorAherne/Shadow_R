@@ -1,13 +1,16 @@
-Adjustment to the original repository, which allows to run it on weaker cards.
-Uses chunking/patching.
-See test.py
-Launch via `python ./test.py --window_size 512` or `--window_size 256` etc
+Adjustment to the original repository, which allows to run it on weaker cards.<br>
+Uses chunking/patching.<br>
 
-arguments and their default values:
-`--test_dir = ./ShadowDataset/test` where the input images are
-`--output_dir = ./results/`
-`--window_size = 512` size of sliding window
-`--overlap = 64 Overlap between windows` overlap among the windows
+Currently, original repo installation steps will result in wrong dependencies.<br>
+So instead, install like this: `pip install --upgrade-strategy only-if-needed -r requirements.txt`.
+
+Launch via `python ./test.py --window_size 512` or `--window_size 256` etc<br>
+
+arguments and their default values (see test.py):<br>
+`--test_dir = ./ShadowDataset/test` where the input images are<br>
+`--output_dir = ./results/`<br>
+`--window_size = 512` size of sliding window<br>
+`--overlap = 64 Overlap between windows` overlap among the windows<br>
 
 
 Original repo description:
