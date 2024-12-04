@@ -60,23 +60,24 @@ def merge_patches(patches, positions, original_size, window_size=512, overlap=64
         # Extract the valid portion of the patch (without padding)
         valid_patch = patch[:, :, :patch_h, :patch_w]
         
+        # Create weight mask
         weight = torch.ones_like(valid_patch)
         
         # Apply linear blending in overlap regions
         if overlap > 0:
             for i in range(overlap):
                 weight_value = i / overlap
-                # Blend left edge
-                if x1 > 0:
+                # Blend left edge if not at image boundary
+                if x1 > 0 and i < patch_w:
                     weight[:, :, :, i] *= weight_value
-                # Blend right edge
-                if x2 < w:
+                # Blend right edge if not at image boundary
+                if x2 < w and patch_w - i - 1 >= 0:
                     weight[:, :, :, -(i + 1)] *= weight_value
-                # Blend top edge
-                if y1 > 0:
+                # Blend top edge if not at image boundary
+                if y1 > 0 and i < patch_h:
                     weight[:, :, i, :] *= weight_value
-                # Blend bottom edge
-                if y2 < h:
+                # Blend bottom edge if not at image boundary
+                if y2 < h and patch_h - i - 1 >= 0:
                     weight[:, :, -(i + 1), :] *= weight_value
         
         result[:, :, y1:y2, x1:x2] += valid_patch * weight
@@ -87,6 +88,8 @@ def merge_patches(patches, positions, original_size, window_size=512, overlap=64
     result[valid_mask] = result[valid_mask] / weights[valid_mask]
     
     return result
+
+
 
 def main():
     parser = argparse.ArgumentParser(description='Shadow')
