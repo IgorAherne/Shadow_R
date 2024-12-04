@@ -4,13 +4,16 @@ Uses chunking/patching.<br>
 Currently, original repo installation steps will result in wrong dependencies.<br>
 So instead, install like this: `pip install --upgrade-strategy only-if-needed -r requirements.txt`.
 
+If you need neural nets, get them from google drive of the original repo<br>
+If the drive is unaccessible, you can get them from here too [Release](https://github.com/IgorAherne/Shadow_R/releases/tag/original_weights)
+
 Launch via `python ./test.py --window_size 512` or `--window_size 256` etc<br>
 
 arguments and their default values (see test.py):<br>
 `--test_dir = ./ShadowDataset/test` where the input images are<br>
 `--output_dir = ./results/`<br>
-`--window_size = 512` size of sliding window<br>
-`--overlap = 64 Overlap between windows` overlap among the windows<br>
+`--window_size = 512` size of sliding window, to split the work into smaller pieces, for performance. Careful, might create seams<br>
+`--overlap = 64` overlap among the windows, to hide possible seams<br>
 
 
 Original repo description:
