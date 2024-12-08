@@ -11,7 +11,8 @@ Launch via `python ./test.py --window_size 512` or `--window_size 256` etc<br>
 
 arguments and their default values (see test.py):<br>
 `--test_dir = ./ShadowDataset/test` where the input images are<br>
-`--output_dir = ./results/`<br>
+`--input_dir = ./input/`<br>
+`--output_dir = ./output/`<br>
 `--window_size = 512` size of sliding window, to split the work into smaller pieces, for performance. Careful, might create seams<br>
 `--overlap = 64` overlap among the windows, to hide possible seams<br>
 
