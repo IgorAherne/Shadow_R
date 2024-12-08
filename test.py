@@ -93,21 +93,24 @@ def merge_patches(patches, positions, original_size, window_size=512, overlap=64
 
 def main():
     parser = argparse.ArgumentParser(description='Shadow')
-    parser.add_argument('--test_dir', type=str, default='./ShadowDataset/test/')
-    parser.add_argument('--output_dir', type=str, default='results/')
+    parser.add_argument('--input_dir', type=str, default='/ShadowDataset/test/')
+    parser.add_argument('--output_dir', type=str, default='output/')
     parser.add_argument('--window_size', type=int, default=512, help='Size of sliding window')
     parser.add_argument('--overlap', type=int, default=64, help='Overlap between windows')
     args = parser.parse_args()
 
+     # Ensure paths end with slash
+    args.input_dir = os.path.join(args.input_dir, '')
+    args.output_dir = os.path.join(args.output_dir, '')
     print('')
-    print(f'input_dir: {args.test_dir}')
+    print(f'input_dir: {args.input_dir}')
     print(f'output_dir: {args.output_dir}')
     print('')
     
     if not os.path.exists(args.output_dir):
         os.makedirs(args.output_dir, exist_ok=True)
     
-    test_dataset = dehaze_test_dataset(args.test_dir)
+    test_dataset = dehaze_test_dataset(args.input_dir)
     test_loader = DataLoader(dataset=test_dataset, batch_size=1, shuffle=False, num_workers=0)
     
     device = 'cuda:0' if torch.cuda.is_available() else 'cpu'
