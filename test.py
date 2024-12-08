@@ -99,8 +99,10 @@ def main():
     parser.add_argument('--overlap', type=int, default=64, help='Overlap between windows')
     args = parser.parse_args()
 
+    print('')
     print(f'input_dir: {args.test_dir}')
     print(f'output_dir: {args.output_dir}')
+    print('')
     
     if not os.path.exists(args.output_dir):
         os.makedirs(args.output_dir, exist_ok=True)
