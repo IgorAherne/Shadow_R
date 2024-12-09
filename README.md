@@ -4,6 +4,9 @@ Uses chunking/patching.<br>
 Currently, original repo installation steps will result in wrong dependencies.<br>
 So instead, install like this: `pip install --upgrade-strategy only-if-needed -r requirements.txt`
 
+Or you can download the full setup from here https://github.com/IgorAherne/Shadow_R/releases/tag/latest <br>
+This way you won't need to run any pip installs.
+
 If you need neural nets, get them from google drive of the original repo<br>
 If the drive is unaccessible, you can get them from here too [Release](https://github.com/IgorAherne/Shadow_R/releases/tag/original_weights)
 
